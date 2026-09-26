@@ -1,51 +1,488 @@
----
-layout: default
-title: Home
----
-<header>
-  <img alt="{{ site.name }} picture" src="{{ site.picture }}" />
+<!doctype html>
+<html lang="en" class="l-en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hwajun Lee 이화준</title>
+<meta name="description" content="Hwajun Lee (이화준), political scientist. Research Professor at Chonnam National University. Civil–military relations, North Korea and nuclear proliferation, transitional justice.">
+<meta property="og:title" content="Hwajun Lee 이화준">
+<meta property="og:description" content="Political scientist working on civil–military relations, North Korea and nuclear proliferation, and transitional justice.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%234F5D2F'/%3E%3Ctext x='16' y='22' font-family='serif' font-size='16' text-anchor='middle' fill='%23F5F6F2'%3EHL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --paper:#F4F5F1; --panel:#E9ECE3; --ink:#1B211E; --muted:#5B645D; --faint:#8A928A;
+  --rule:#D3D8CC; --accent:#4F5D2F; --accent-ink:#F4F5F1; --accent-soft:#DFE5CF;
+  --serif:"Gowun Batang","Nanum Myeongjo","Noto Serif KR",Georgia,serif;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --paper:#131714; --panel:#1B201C; --ink:#E4E8E0; --muted:#9BA49B; --faint:#6E776F;
+    --rule:#2B322D; --accent:#B4C389; --accent-ink:#131714; --accent-soft:#263020;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --paper:#131714; --panel:#1B201C; --ink:#E4E8E0; --muted:#9BA49B; --faint:#6E776F;
+  --rule:#2B322D; --accent:#B4C389; --accent-ink:#131714; --accent-soft:#263020;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.7 var(--sans);padding-inline:20px}
+a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
+a:hover{text-decoration-color:var(--accent);color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:2px}
 
-  <h1>
-    <strong><a href="./">{{ site.name }}</a></strong>
-  </h1>
+/* language switch */
+html.l-ko body, [lang="ko"], .ko{word-break:keep-all}
+html.l-en .ko, html.l-ko .en{display:none!important}
 
-  <p>
-    Some Cool Company</br>
-    Brazil, Barueri-SP</br>
-    Front-end Developer
+.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:72px;padding-block:64px 96px}
+
+/* sidebar */
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 48px);align-self:start;display:flex;flex-direction:column;gap:28px}
+.name{margin:0;font:700 34px/1.15 var(--serif);letter-spacing:-.01em}
+.name small{display:block;font-size:20px;font-weight:400;color:var(--muted);margin-top:6px;letter-spacing:.08em}
+.role{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.role strong{color:var(--ink);font-weight:500}
+.nav{display:flex;flex-direction:column;gap:2px;border-top:1px solid var(--rule);padding-top:18px}
+.nav a{text-decoration:none;font-size:14px;color:var(--muted);padding:3px 0;display:flex;gap:10px;align-items:baseline}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.nav a.on::before{background:var(--accent)}
+.nav a::before{content:"";width:12px;height:1px;background:var(--rule);flex:none;transform:translateY(-4px)}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:999px;padding:3px;gap:2px;align-self:flex-start}
+.lang button{font:500 13px/1 var(--sans);border:0;background:none;color:var(--muted);padding:7px 12px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.contact-mini{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.contact-mini span{font-family:var(--mono);font-size:12.5px;color:var(--ink);word-break:break-all}
+
+/* main */
+main{min-width:0;max-width:720px}
+.lede{font:400 clamp(24px,3.2vw,32px)/1.45 var(--serif);margin:0 0 28px;text-wrap:balance;letter-spacing:-.005em}
+.lede em{font-style:normal;color:var(--accent)}
+section{padding-top:72px;scroll-margin-top:24px}
+section:first-child{padding-top:0}
+h2{font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0 0 28px;display:flex;align-items:center;gap:14px}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+h3{font:700 21px/1.35 var(--serif);margin:0 0 10px;text-wrap:balance}
+p{margin:0 0 14px}
+.prose p{max-width:65ch}
+.muted{color:var(--muted)}
+
+/* positions / education tables */
+.rows{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.rows li{display:grid;grid-template-columns:118px minmax(0,1fr);gap:18px}
+.when{font:400 13px/1.9 var(--mono);color:var(--faint);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rows .what{line-height:1.6}
+.rows .what small{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.sub{font:500 14px/1 var(--sans);color:var(--ink);margin:36px 0 16px}
+
+/* framework triad */
+.triad{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--rule);border-radius:4px;margin:22px 0 18px;overflow:hidden}
+.triad div{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px}
+.triad div+div{border-left:1px solid var(--rule)}
+.triad b{font:700 22px/1.2 var(--serif)}
+.triad span{font:400 12px/1.4 var(--mono);color:var(--accent);letter-spacing:.04em}
+.triad p{font-size:14px;color:var(--muted);margin:0;line-height:1.55}
+
+.theme{padding:26px 0;border-top:1px solid var(--rule)}
+.theme:first-of-type{border-top:0;padding-top:0}
+.theme .key{font:400 12px/1 var(--mono);color:var(--accent);letter-spacing:.06em;margin-bottom:10px;display:block}
+.forward{background:var(--accent-soft);border-radius:4px;padding:18px 20px;margin-top:6px}
+.forward p{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip-s{font:400 12.5px/1 var(--mono);border:1px solid var(--rule);border-radius:3px;padding:6px 8px;color:var(--muted)}
+
+.project{display:grid;gap:4px;padding:16px 0;border-top:1px solid var(--rule)}
+.project:first-of-type{border-top:0}
+.project .ptitle{font:700 17px/1.45 var(--serif)}
+
+/* publications */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.filters button{font:500 13px/1 var(--sans);border:1px solid var(--rule);background:transparent;color:var(--muted);padding:9px 13px;border-radius:999px;cursor:pointer}
+.filters button:hover{color:var(--ink);border-color:var(--muted)}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.count{font:400 12.5px/1 var(--mono);color:var(--faint);margin:14px 0 26px}
+.pub-year{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;padding:18px 0;border-top:1px solid var(--rule)}
+.pub-year .yr{font:500 15px/1.75 var(--mono);color:var(--accent);font-variant-numeric:tabular-nums}
+.pub-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.pub{font-size:15px;line-height:1.65;overflow-wrap:anywhere}
+.pub b{font-weight:600}
+.p-title{font-family:var(--serif);font-weight:700;font-size:16px}
+.p-venue{color:var(--muted)}
+.doi{font:400 12px/1 var(--mono);color:var(--faint);text-decoration:none;white-space:nowrap}
+.doi:hover{color:var(--accent)}
+.tag{display:inline-block;font:500 10.5px/1 var(--mono);letter-spacing:.06em;color:var(--accent);border:1px solid currentColor;border-radius:2px;padding:3px 5px;margin-left:4px;vertical-align:2px}
+.hidden{display:none!important}
+
+.list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.list li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;font-size:15px}
+.list .yr{font:400 13px/1.9 var(--mono);color:var(--faint)}
+.list .venue{color:var(--muted)}
+
+.courses{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;padding:0;list-style:none}
+.courses li{border:1px solid var(--rule);border-radius:3px;padding:7px 11px;font-size:14px}
+
+.contact{display:grid;grid-template-columns:118px minmax(0,1fr);gap:10px 18px;font-size:15px}
+.contact dt{color:var(--faint);font:400 13px/1.9 var(--mono)}
+.contact dd{margin:0}
+.copy{font:500 12px/1 var(--sans);border:1px solid var(--rule);background:none;color:var(--muted);border-radius:3px;padding:5px 8px;margin-left:8px;cursor:pointer;vertical-align:1px}
+.copy:hover{color:var(--ink)}
+
+footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:400 12.5px/1.6 var(--mono);color:var(--faint)}
+
+@media (max-width: 900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:36px 72px}
+  .side{position:static;gap:20px}
+  .nav{flex-direction:row;flex-wrap:wrap;gap:4px 16px}
+  .nav a::before{display:none}
+  main{max-width:none}
+}
+@media (max-width: 560px){
+  body{padding-inline:16px}
+  .name{font-size:30px}
+  .triad{grid-template-columns:minmax(0,1fr)}
+  .triad div+div{border-left:0;border-top:1px solid var(--rule)}
+  .rows li,.contact{grid-template-columns:minmax(0,1fr);gap:2px}
+  .rows li{gap:0}
+  .contact dd{margin-bottom:10px}
+  .pub-year,.list li{grid-template-columns:minmax(0,1fr);gap:6px}
+  section{padding-top:56px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<aside class="side">
+  <div>
+    <h1 class="name">Hwajun Lee<small>이화준</small></h1>
+  </div>
+  <p class="role">
+    <strong class="en">Research Professor</strong><strong class="ko">학술연구교수</strong><br>
+    <span class="en">Chonnam National University, Gwangju</span>
+    <span class="ko">전남대학교 전남광주 인문사회연구원</span><br>
+    <span class="en">PhD in Political Science, Yonsei University</span>
+    <span class="ko">정치학 박사, 연세대학교</span>
   </p>
-
-  <nav>
-    <ul>
-      <li><a href="https://twitter.com/{{ site.twitter }}">Twitter</a></li>
-      <li><a href="https://github.com/{{ site.github }}">Github</a></li>
-      <li><a href="mailto:{{ site.email }}">me AT jane DOT doe</a></li>
-    </ul>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" id="lang-en" data-lang="en" aria-pressed="true">English</button>
+    <button type="button" id="lang-ko" data-lang="ko" aria-pressed="false">한국어</button>
+  </div>
+  <nav class="nav" aria-label="Sections">
+    <a href="#about"><span class="en">About</span><span class="ko">소개</span></a>
+    <a href="#research"><span class="en">Research</span><span class="ko">연구</span></a>
+    <a href="#publications"><span class="en">Publications</span><span class="ko">논문·저서</span></a>
+    <a href="#talks"><span class="en">Presentations</span><span class="ko">학술 발표</span></a>
+    <a href="#teaching"><span class="en">Teaching</span><span class="ko">강의</span></a>
+    <a href="#grants"><span class="en">Grants &amp; Awards</span><span class="ko">연구비·수상</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="ko">연락처</span></a>
   </nav>
+  <div class="contact-mini">
+    <span>jsps1017@yonsei.ac.kr</span>
+  </div>
+</aside>
 
-  <small>
-    <a href="https://github.com/sergiokopplin/violet">Violet</a> theme
-    <br> inspired on <a href="http://cyberglot.me/">Ju Gonçalves</a>
-  </small>
-</header>
+<main>
 
-<section class="content">
-  <p>
-    Student at School of Code, creator of <a href="http://aweso.me/">Awesome</a>. Front-end Developer looking for responsive challenges. Programmer at <a href="https://google.com/search?q=cool+company">Cool Company</a>.
-  </p>
+<section id="about" aria-label="About">
+  <p class="lede en">I study how democracies govern their armed forces, and <em>when political authority is able to reform the military</em>.</p>
+  <p class="lede ko">민주주의 국가가 군을 어떻게 통제하는지, 그리고 <em>정치 권력이 언제 군을 개혁할 수 있는지</em>를 연구한다.</p>
 
-  <p>
-    Member of the <a href="https://google.com/search?q=big+bang+theory+show">The Big Band Theory</a>, playing drums with love. Recording a new disco inside my garage. Willing to be the new Slayer girl drummer. <a href="https://google.com/search?q=black+metal">Black Metal lover</a>.
-  </p>
+  <div class="prose en">
+    <p>I am a political scientist working on civil–military relations, comparative politics, and international security in Northeast Asia. I am a Research Professor at Chonnam National University in Gwangju. My research also covers North Korean politics and nuclear proliferation, transitional justice, and the politics of memory.</p>
+    <p>I received my PhD in Political Science from Yonsei University in 2024. Before that I taught political science at the Korea Military Academy as a commissioned officer, and I have since taught international relations, security studies, and research methods at universities across Korea.</p>
+  </div>
+  <div class="prose ko">
+    <p>민군관계, 비교정치, 동북아 국제안보를 연구하는 정치학자이다. 현재 전남대학교 전남광주 인문사회연구원 학술연구교수로 재직하고 있다. 북한 정치와 핵확산, 전환기 정의, 기억의 정치도 주요 연구 주제이다.</p>
+    <p>2024년 연세대학교에서 정치학 박사학위를 받았다. 육군사관학교에서 장교로 복무하며 정치학을 강의하였고, 이후 여러 대학에서 국제관계, 안보, 연구방법론을 가르쳤다.</p>
+  </div>
 
-  <p>
-    <strong>Study Interests</strong></br>
-    Javascript without <a href="http://vanilla-js.com/">jQuery</a>. Lorem Ipsum generators. Bands that don't exist yet.
-  </p>
+  <div class="sub"><span class="en">Positions</span><span class="ko">경력</span></div>
+  <ul class="rows">
+    <li><span class="when">2026–</span><span class="what"><span class="en">Research Professor, Chonnam National University</span><span class="ko">학술연구교수, 전남대학교 전남광주 인문사회연구원</span></span></li>
+    <li><span class="when">2024–2026</span><span class="what"><span class="en">Research Fellow, Yonsei University</span><span class="ko">전문연구원, 연세대학교 정치외교연구소</span></span></li>
+    <li><span class="when">2023–2026</span><span class="what"><span class="en">Lecturer: Korea Military Academy, Hankuk University of Foreign Studies, Soongsil University, Hankyong National University, Tech University of Korea, Sungkyunkwan University Graduate School of National Strategy</span><span class="ko">강사: 육군사관학교, 한국외국어대학교, 숭실대학교, 한경국립대학교, 한국공학대학교, 성균관대학교 국가전략대학원</span></span></li>
+    <li><span class="when">2016–2017</span><span class="what"><span class="en">Researcher, Barun ICT Research Center, Yonsei University</span><span class="ko">공동연구원, 연세대학교 바른ICT연구소</span><small class="en">ICT governance for youth suicide prevention</small><small class="ko">청소년 자살예방을 위한 국가–사회 ICT 거버넌스 구축</small></span></li>
+    <li><span class="when">2012–2016</span><span class="what"><span class="en">Instructor of Political Science (Lieutenant), Korea Military Academy</span><span class="ko">정치학 강사(중위), 육군사관학교</span><small class="en">National Security, International Relations, Political Science</small><small class="ko">국가안보론·국제관계론·정치학</small></span></li>
+  </ul>
 
-  <p>
-    <strong>Projects</strong></br>
-    <a href="http://aweso.me/">Awesome Project</a>. Just some jQuery lib.
-    <br>My band, on weekends. <a href="https://google.com/search?q=my+band">The Big Band Theory</a>
-  </p>
+  <div class="sub"><span class="en">Education</span><span class="ko">학력</span></div>
+  <ul class="rows">
+    <li><span class="when">2024</span><span class="what"><span class="en">PhD in Political Science, Yonsei University</span><span class="ko">정치학 박사, 연세대학교</span><small lang="ko">현대 군거버넌스의 복합성에 대한 연구: 문민성, 조직성, 전문성을 중심으로</small><small class="en">Advisor: Sangjoon Kim</small><small class="ko">지도교수: 김상준</small></span></li>
+    <li><span class="when">2012</span><span class="what"><span class="en">MA in Political Science, Yonsei University</span><span class="ko">정치학 석사, 연세대학교</span><small lang="ko">역사분쟁의 정치: 탈냉전 이후 한일관계의 역사문제 패턴화</small></span></li>
+    <li><span class="when">2009</span><span class="what"><span class="en">BA in Political Science and Diplomacy, Sungkyunkwan University</span><span class="ko">정치학사, 성균관대학교 정치외교학과</span></span></li>
+  </ul>
 </section>
+
+<section id="research" aria-label="Research">
+  <h2><span class="en">Research</span><span class="ko">연구</span></h2>
+
+  <div class="theme">
+    <span class="key"><span class="en">Civil–military relations</span><span class="ko">민군관계·군 거버넌스</span></span>
+    <h3><span class="en">Military governance and democratic civilian control</span><span class="ko">군 거버넌스와 민주적 문민통제</span></h3>
+    <div class="prose en"><p>My dissertation analyzed modern military governance along three dimensions. I use this framework to explain why formal civilian control in South Korea did not become consolidated democratic control, how military autonomy shapes force structure, and what the martial law declaration of December 3, 2024 revealed about the limits of oversight.</p></div>
+    <div class="prose ko"><p>박사학위논문에서 현대 군 거버넌스를 세 차원으로 나누어 분석하였다. 이 틀로 한국의 제도적 문민통제가 왜 민주적 문민통제의 공고화로 이어지지 못했는지, 군의 자율성이 전력 구조를 어떻게 형성하는지, 12·3 비상계엄이 민주적 통제의 한계를 어떻게 드러냈는지를 설명한다.</p></div>
+    <div class="triad" aria-label="Three dimensions of military governance">
+      <div><span>Civilianness</span><b>문민성</b></div>
+      <div><span>Organization</span><b>조직성</b></div>
+      <div><span>Professionalism</span><b>전문성</b></div>
+    </div>
+    <div class="forward">
+      <p class="en">Current work turns the classic question around. Instead of asking when the military intervenes in politics, I ask when political authority can reform the military.</p>
+      <p class="ko">현재 연구는 고전적 질문을 뒤집는다. 군이 언제 정치에 개입하는지가 아니라, 정치 권력이 언제 군을 개혁할 수 있는지를 묻는다.</p>
+    </div>
+  </div>
+
+  <div class="theme">
+    <span class="key"><span class="en">North Korea · nuclear proliferation</span><span class="ko">북한·핵확산</span></span>
+    <h3><span class="en">North Korea's nuclear program, sanctions, and regime survival</span><span class="ko">북한의 핵개발, 제재, 체제 생존</span></h3>
+    <div class="prose en"><p>I study North Korea's nuclear development as a learning process, the effects of sanctions on markets and on the regime's crisis management, and the politics of regime survival. Much of this work uses computational text analysis of North Korean official sources, including topic modeling and network analysis of the Rodong Sinmun.</p></div>
+    <div class="prose ko"><p>북한의 핵개발을 학습 과정으로 분석하고, 대북제재가 장마당과 북한의 위기관리 전략에 미친 영향, 체제 생존의 정치를 연구한다. 노동신문 토픽모델링과 네트워크 분석 등 북한 공식 매체에 대한 계산적 텍스트 분석을 주로 활용한다.</p></div>
+  </div>
+
+  <div class="theme">
+    <span class="key"><span class="en">Transitional justice · memory</span><span class="ko">전환기 정의·기억의 정치</span></span>
+    <h3><span class="en">Transitional justice and the politics of memory</span><span class="ko">전환기 정의와 기억의 정치</span></h3>
+    <div class="prose en"><p>I examine how states deal with past military rule and wartime violence: the link between transitional justice and civilian control in post-military regimes, and how museums and memorials in Korea, Japan, and Britain construct national narratives. At Chonnam National University I work on a project on the theory of K-democracy and typologies of transitional justice.</p></div>
+    <div class="prose ko"><p>군부정권과 전시 폭력의 과거를 국가가 어떻게 다루는지 연구한다. 군부정권을 경험한 국가들에서 전환기 정의와 문민통제의 관계를 분석하고, 한국·일본·영국의 박물관과 기념관이 국가 서사를 구성하는 방식을 다루었다. 전남대학교에서는 「K-민주주의의 이론 정립과 전환기 정의 유형화」 과제에 참여하고 있다.</p></div>
+  </div>
+
+  <div class="theme">
+    <span class="key"><span class="en">Methods</span><span class="ko">연구방법</span></span>
+    <div class="prose en"><p>Panel data analysis, text mining and topic modeling, social network analysis, and comparative historical analysis.</p></div>
+    <div class="prose ko"><p>패널 데이터 분석, 텍스트마이닝과 토픽모델링, 사회연결망 분석, 비교역사분석.</p></div>
+    <div class="chips"><span class="chip-s">R</span><span class="chip-s">Stata</span><span class="chip-s">Python</span><span class="chip-s">UCINET</span></div>
+  </div>
+
+  <div class="sub"><span class="en">Funded project</span><span class="ko">수행 과제</span></div>
+  <div class="project">
+    <span class="ptitle" lang="ko">징병제의 다이내믹과 사회적 효과 연구</span>
+    <span class="muted en">The Dynamics of Conscription and Its Social Effects · National Research Foundation of Korea, 2026–2027 · Principal Investigator</span>
+    <span class="muted ko">한국연구재단 인문사회학술연구교수 과제 · 2026–2027 · 연구책임자</span>
+  </div>
+</section>
+
+<section id="publications" aria-label="Publications">
+  <h2><span class="en">Publications</span><span class="ko">논문·저서</span></h2>
+  <div class="filters" role="group" aria-label="Filter publications">
+    <button type="button" id="f-all" data-f="all" aria-pressed="true"><span class="en">All</span><span class="ko">전체</span></button>
+    <button type="button" id="f-en" data-f="lang:en" aria-pressed="false"><span class="en">In English</span><span class="ko">영문</span></button>
+    <button type="button" id="f-cmr" data-f="cmr" aria-pressed="false"><span class="en">Civil–military</span><span class="ko">민군관계</span></button>
+    <button type="button" id="f-nk" data-f="nk" aria-pressed="false"><span class="en">North Korea</span><span class="ko">북한·핵</span></button>
+    <button type="button" id="f-tj" data-f="tj" aria-pressed="false"><span class="en">Transitional justice &amp; memory</span><span class="ko">전환기 정의·기억</span></button>
+    <button type="button" id="f-sec" data-f="sec" aria-pressed="false"><span class="en">Security &amp; identity</span><span class="ko">안보·정체성</span></button>
+    <button type="button" id="f-book" data-f="type:book" aria-pressed="false"><span class="en">Books</span><span class="ko">저서</span></button>
+  </div>
+  <p class="count" id="pub-count" aria-live="polite">28 items</p>
+  <div id="pubs">
+<div class="pub-year" data-year="2026"><div class="yr">2026</div><ol class="pub-list">
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="en"><span class="p-auth">Park, Inbo, and <b>Hwajun Lee</b>.</span> <span class="p-title">“De Jure Control without Expertise: Why South Korea Failed to Consolidate Democratic Civilian Control.”</span> <span class="p-venue"><i>Studies in Comparative International Development</i> Online first.</span> <a class="doi" href="https://doi.org/10.1007/s12116-026-09510-9" target="_blank" rel="noopener">doi:10.1007/s12116-026-09510-9</a> <span class="tag">SSCI</span></li>
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="en"><span class="p-auth"><b>Lee, Hwajun</b>, and Gunwoo Choi.</span> <span class="p-title">“Civilian Control and Strategic Force Formation: How Military Autonomy Drives Organizational Change.”</span> <span class="p-venue"><i>Pacific Focus</i>.</span> <a class="doi" href="https://doi.org/10.1111/pafo.70013" target="_blank" rel="noopener">doi:10.1111/pafo.70013</a> <span class="tag">SSCI</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="en"><span class="p-auth">Kim, Sangjoon, Se Lynn Kim, and <b>Hwajun Lee</b>.</span> <span class="p-title">“A Learning Game: North Korea’s Prolonged Development of Nuclear Weapons.”</span> <span class="p-venue"><i>동서연구 (East-West Studies)</i> 38(2): 37–76.</span> <a class="doi" href="https://doi.org/10.29274/ews.2026.38.2.37" target="_blank" rel="noopener">doi:10.29274/ews.2026.38.2.37</a></li>
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「군부 파벌 정치와 권력 공고화: 박정희 체제 형성의 동학」</span> <span class="p-venue"><i>담론201</i> 29(1): 75–110.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2025"><div class="yr">2025</div><ol class="pub-list">
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「한국군의 민주적 통제의 과제: 12·3 비상계엄 사태를 중심으로」</span> <span class="p-venue"><i>문화와 정치</i> 12(1): 129–166.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">이경구, <b>이화준</b>, 이후량.</span> <span class="p-title">「민족에서 국가로: 노동신문에서 나타난 민족 담론의 토픽모델 분석과 네트워크 중심성 분석을 중심으로」</span> <span class="p-venue"><i>북한연구학회보</i> 29(1): 39–72.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2024"><div class="yr">2024</div><ol class="pub-list">
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="en"><span class="p-auth"><b>Lee, Hwajun</b>, and Alexandre Haym.</span> <span class="p-title">“Advancing into Politics: A Study on Military Professionalism, Civilian Control, and Military Reforms.”</span> <span class="p-venue"><i>Korean Journal of Defense Analysis</i> 36(4): 395–418.</span> <a class="doi" href="https://doi.org/10.22883/kjda.2024.36.4.003" target="_blank" rel="noopener">doi:10.22883/kjda.2024.36.4.003</a> <span class="tag">SSCI</span></li>
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「사회적 불안정이 사회적 안보에 미치는 영향 연구: 사회적 안보에서의 회복탄력성을 중심으로」</span> <span class="p-venue"><i>동서연구</i> 36(3): 127–156.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2023"><div class="yr">2023</div><ol class="pub-list">
+<li class="pub" data-theme-tags="tj cmr" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「전환기 정의와 문민통제: 군부정권 경험 국가들의 양적분석을 중심으로」</span> <span class="p-venue"><i>한국군사학논집</i> 79(3): 73–102.</span></li>
+<li class="pub" data-theme-tags="tj" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「전쟁박물관의 정치와 국가주의 서사의 대안 모색: 런던 제국전쟁박물관을 중심으로」</span> <span class="p-venue"><i>문화와 정치</i> 10(3): 69–106.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">마월, <b>이화준</b>.</span> <span class="p-title">「대북제재의 북한 장마당에 대한 영향 분석」</span> <span class="p-venue"><i>현대북한연구</i> 26(1): 130–174.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2022"><div class="yr">2022</div><ol class="pub-list">
+<li class="pub" data-theme-tags="nk" data-type="book" lang="ko"><span class="p-auth">김용호, <b>이화준</b>, 박성호.</span> <span class="p-title">『북핵, 리스크와 블랙스완』</span> <span class="p-venue">연세대학교 출판문화원.</span> <span class="tag">Book</span></li>
+<li class="pub" data-theme-tags="cmr sec" data-type="article" lang="ko"><span class="p-auth">박인보, <b>이화준</b>.</span> <span class="p-title">「재해대응과 미일동맹: 자위대의 안보행태를 중심으로」</span> <span class="p-venue"><i>한국군사학논집</i> 78(1): 223–252.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">김도형, <b>이화준</b>.</span> <span class="p-title">「누구를 위하여 당대회가 열리나?: 통치연합의 위협과 독재자의 정치적 생존」</span> <span class="p-venue"><i>아세아연구</i> 65(4): 99–133.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2021"><div class="yr">2021</div><ol class="pub-list">
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">이현지, <b>이화준</b>.</span> <span class="p-title">「UN 대북제재에 대한 북한의 위기관리전략: 북한의 외교성명 텍스트마이닝 분석」</span> <span class="p-venue"><i>아세아연구</i> 64(3): 31–68.</span></li>
+<li class="pub" data-theme-tags="cmr" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>, 박인보.</span> <span class="p-title">「재해대응과 민군관계: 도호쿠대지진과 일본의 문민통제」</span> <span class="p-venue"><i>한국군사학논집</i> 77(1): 57–87.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">박성호, <b>이화준</b>, 김용호.</span> <span class="p-title">「북한은 유튜브를 통해 무엇을 말하는가?: 주제 분석과 텍스트마이닝」</span> <span class="p-venue"><i>북한연구학회보</i> 25(1): 125–161.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2019"><div class="yr">2019</div><ol class="pub-list">
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth">박차오름, <b>이화준</b>, 김용호.</span> <span class="p-title">「공식 관광 홈페이지를 통해 본 북한의 변화 가능성: 웨이백 머신 기반 분석」</span> <span class="p-venue"><i>북한연구학회보</i> 23(2): 199–231.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>, 노미진.</span> <span class="p-title">「대북정책과 한국 정부의 인식: 대북·분단 인식을 중심으로」</span> <span class="p-venue"><i>사회과학연구</i> 35(1): 23–45.</span></li>
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>, 박인보.</span> <span class="p-title">「국가정체성과 라이벌리: 아부다비와 카타르」</span> <span class="p-venue"><i>중동연구</i> 37(3): 107–136.</span></li>
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>, 최선아.</span> <span class="p-title">「일본의 안보화와 국가정체성: 물리적 기반과 관념기반」</span> <span class="p-venue"><i>일본연구</i> 32: 323–360.</span></li>
+<li class="pub" data-theme-tags="nk" data-type="book" lang="ko"><span class="p-auth">박명림 외.</span> <span class="p-title">『한국의 대통령 리더십과 국가관리: 남북관계 변화와 남북경제협력』</span> <span class="p-venue">고양: 법현.</span> <span class="tag">Book</span></li>
+<li class="pub" data-theme-tags="nk" data-type="book" lang="ko"><span class="p-auth">박명림 외.</span> <span class="p-title">『한국의 대통령 리더십과 국가관리: 남북관계 화해와 평화』</span> <span class="p-venue">고양: 법현.</span> <span class="tag">Book</span></li>
+</ol></div>
+<div class="pub-year" data-year="2018"><div class="yr">2018</div><ol class="pub-list">
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth">김상준, <b>이화준</b>.</span> <span class="p-title">「청소년 자살 예방과 ICT」</span> <span class="p-venue"><i>동서연구</i> 30(3): 153–181.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2016"><div class="yr">2016</div><ol class="pub-list">
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth">김건우, <b>이화준</b>, 육숙희.</span> <span class="p-title">「UN의 시에라리온 분쟁관리와 라이베리아의 개입」</span> <span class="p-venue"><i>한국군사학논집</i> 72(3): 157–182.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2015"><div class="yr">2015</div><ol class="pub-list">
+<li class="pub" data-theme-tags="sec" data-type="article" lang="ko"><span class="p-auth">황진환, <b>이화준</b>.</span> <span class="p-title">「한반도 사드(THAAD) 배치 논란: 쟁점과 분석」</span> <span class="p-venue"><i>신안보연구</i> 187: 105–135.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2014"><div class="yr">2014</div><ol class="pub-list">
+<li class="pub" data-theme-tags="tj" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>.</span> <span class="p-title">「한국과 일본의 선택된 기억과 피해자의식: 양국의 기념관을 중심으로」</span> <span class="p-venue"><i>사회과학논집</i> 45(1): 1–24.</span></li>
+</ol></div>
+<div class="pub-year" data-year="2011"><div class="yr">2011</div><ol class="pub-list">
+<li class="pub" data-theme-tags="tj" data-type="article" lang="ko"><span class="p-auth"><b>이화준</b>, 고희탁.</span> <span class="p-title">「‘난징대학살’ 문제를 둘러싼 기억의 정치와 국제정치학적 딜레마」</span> <span class="p-venue"><i>일본연구</i> 15: 539–563.</span></li>
+</ol></div>
+  </div>
+</section>
+
+<section id="talks" aria-label="Presentations">
+  <h2><span class="en">Presentations</span><span class="ko">학술 발표</span></h2>
+  <ul class="list">
+    <li><span class="yr">2025</span><span>Park, Inbo, and <b>Hwajun Lee</b>. “The Evolution of Civilian Control in South Korea’s Democracy.” <span class="venue">Panel “Resisting Autocratization in Polarized Societies,” IPSA World Congress of Political Science.</span></span></li>
+    <li><span class="yr">2020</span><span>“Study on Civil–Military Relations and Political Participation from the Military.” <span class="venue">The 3rd International Graduate Student Web Conference on Political Science.</span></span></li>
+    <li><span class="yr">2020</span><span lang="ko">「평화유지활동 참여와 군의 전문가주의」 <span class="venue">한국국제정치학회 하계학술대회.</span></span></li>
+    <li><span class="yr">2019</span><span>“The Norms of International Society and Nuclear Proliferation.” <span class="venue">NEREC International Conference on Nuclear Nonproliferation.</span></span></li>
+    <li><span class="yr">2019</span><span>“A Study on National Participation in the PKO Mission.” <span class="venue">International Graduate Student Conference on Political Science.</span></span></li>
+    <li><span class="yr">2018</span><span lang="ko">「PKO 파병의 촉진요인」 <span class="venue">한국정치학회·한국국제정치학회 공동 하계학술회의.</span></span></li>
+  </ul>
+</section>
+
+<section id="teaching" aria-label="Teaching">
+  <h2><span class="en">Teaching</span><span class="ko">강의</span></h2>
+  <ul class="courses en">
+    <li>International Relations</li><li>International Security</li><li>National Security</li><li>Foreign Policy</li>
+    <li>Political and Diplomatic History of Northeast Asia</li><li>North Korean Studies</li>
+    <li>Data and Political Science (Quantitative Methods II)</li><li>Qualitative Methods</li>
+  </ul>
+  <ul class="courses ko">
+    <li>국제관계론</li><li>국제안보론</li><li>국가안보론</li><li>외교정책론</li>
+    <li>동북아정치외교사</li><li>북한학</li>
+    <li>데이터와 정치학(양적방법론 II)</li><li>질적방법론</li>
+  </ul>
+  <p class="muted en" style="font-size:14px;margin-top:14px">Taught at the Korea Military Academy, Hankuk University of Foreign Studies, Soongsil University, Hankyong National University, Tech University of Korea, and the Sungkyunkwan University Graduate School of National Strategy.</p>
+  <p class="muted ko" style="font-size:14px;margin-top:14px">육군사관학교, 한국외국어대학교, 숭실대학교, 한경국립대학교, 한국공학대학교, 성균관대학교 국가전략대학원에서 강의하였다.</p>
+</section>
+
+<section id="grants" aria-label="Grants and awards">
+  <h2><span class="en">Grants &amp; Awards</span><span class="ko">연구비·수상</span></h2>
+  <ul class="rows">
+    <li><span class="when">2026–2027</span><span class="what"><span class="en">National Research Foundation of Korea, Humanities and Social Sciences Research Grant</span><span class="ko">한국연구재단 인문사회학술연구</span></span></li>
+    <li><span class="when">2025–2026</span><span class="what"><span class="en">National Research Foundation of Korea, Humanities and Social Sciences Research Grant</span><span class="ko">한국연구재단 인문사회학술연구</span></span></li>
+    <li><span class="when">2020–2023</span><span class="what"><span class="en">National Research Foundation of Korea, Humanities and Social Sciences Research Grant (three consecutive awards)</span><span class="ko">한국연구재단 인문사회학술연구 (3회 연속 선정)</span></span></li>
+    <li><span class="when">2018–2022</span><span class="what"><span class="en">BK21 Plus, Yonsei University</span><span class="ko">연세대학교 BK21+</span></span></li>
+    <li><span class="when">2019</span><span class="what"><span class="en">NEREC Fellow, KAIST</span><span class="ko">KAIST NEREC Fellow</span></span></li>
+    <li><span class="when">2019</span><span class="what"><span class="en">Best Paper Award (Humanities and Social Sciences), Yonsei University Graduate School</span><span class="ko">연세대학교 대학원 학술논문 문과 최우수상</span></span></li>
+    <li><span class="when">2009–2011</span><span class="what"><span class="en">Graduate Scholarship, Department of Political Science, Yonsei University</span><span class="ko">연세대학교 정치학과 대학원 장학금</span></span></li>
+  </ul>
+
+  <div class="sub"><span class="en">Service</span><span class="ko">학술 활동</span></div>
+  <p class="en" style="font-size:15px"><span class="muted">Reviewer for</span> <i>Democratization</i>, <i>Korean Journal of International Studies</i>, <i>East-West Studies</i> (동서연구), and the Korean-language journals 국방정책연구, 해양안보, 글로벌정치연구, and 담론201.</p>
+  <p class="ko" style="font-size:15px"><span class="muted">논문 심사:</span> <i>Democratization</i>, 동서연구, <i>Korean Journal of International Studies</i>, 국방정책연구, 해양안보, 글로벌정치연구, 담론201.</p>
+</section>
+
+<section id="contact" aria-label="Contact">
+  <h2><span class="en">Contact</span><span class="ko">연락처</span></h2>
+  <dl class="contact">
+    <dt>Email</dt>
+    <dd><a href="mailto:jsps1017@yonsei.ac.kr">jsps1017@yonsei.ac.kr</a><button type="button" class="copy" id="copy-email" data-copy="jsps1017@yonsei.ac.kr"><span class="en">Copy</span><span class="ko">복사</span></button></dd>
+    <dt><span class="en">Office</span><span class="ko">소속</span></dt>
+    <dd><span class="en">Chonnam National University, Gwangju, Republic of Korea</span><span class="ko">전남대학교 전남광주 인문사회연구원 (광주광역시)</span></dd>
+  </dl>
+</section>
+
+<footer>
+  <span class="en">Last updated 2026-09-27</span><span class="ko">최종 수정 2026-09-27</span>
+</footer>
+
+</main>
+</div>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  function setLang(l){
+    root.classList.remove('l-en','l-ko');
+    root.classList.add('l-'+l);
+    root.setAttribute('lang', l);
+    document.querySelectorAll('.lang button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.lang===l));
+    });
+    updateCount();
+    try{ localStorage.setItem('hl-lang', l); }catch(e){}
+  }
+  var saved = null;
+  try{ saved = localStorage.getItem('hl-lang'); }catch(e){}
+  var hash = (location.hash||'').replace('#','');
+  var initial = hash==='ko' || hash==='en' ? hash : (saved || ((navigator.language||'').toLowerCase().indexOf('ko')===0 ? 'ko' : 'en'));
+
+  document.querySelectorAll('.lang button').forEach(function(b){
+    b.addEventListener('click', function(){ setLang(b.dataset.lang); });
+  });
+
+  // publication filters
+  var current = 'all';
+  function matches(li, f){
+    if(f==='all') return true;
+    if(f.indexOf('lang:')===0) return li.getAttribute('lang')===f.slice(5);
+    if(f.indexOf('type:')===0) return li.dataset.type===f.slice(5);
+    return (' '+li.dataset.themeTags+' ').indexOf(' '+f+' ')>-1;
+  }
+  function updateCount(){
+    var n = document.querySelectorAll('.pub:not(.hidden)').length;
+    var el = document.getElementById('pub-count');
+    if(el) el.textContent = root.classList.contains('l-ko') ? n+'편' : n+(n===1?' item':' items');
+  }
+  function apply(f){
+    current = f;
+    document.querySelectorAll('.pub').forEach(function(li){
+      li.classList.toggle('hidden', !matches(li,f));
+    });
+    document.querySelectorAll('.pub-year').forEach(function(y){
+      y.classList.toggle('hidden', !y.querySelector('.pub:not(.hidden)'));
+    });
+    document.querySelectorAll('.filters button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.f===f));
+    });
+    updateCount();
+  }
+  document.querySelectorAll('.filters button').forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.dataset.f); });
+  });
+
+  // copy email
+  var cb = document.getElementById('copy-email');
+  if(cb) cb.addEventListener('click', function(){
+    var t = cb.dataset.copy, label = cb.innerHTML;
+    function done(){ cb.textContent = root.classList.contains('l-ko') ? '복사됨' : 'Copied'; setTimeout(function(){ cb.innerHTML = label; }, 1600); }
+    try{
+      navigator.clipboard.writeText(t).then(done, function(){ selectText(); });
+    }catch(e){ selectText(); }
+    function selectText(){
+      var a = cb.previousElementSibling, r = document.createRange();
+      r.selectNodeContents(a); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    }
+  });
+
+  // nav highlight
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href')==='#'+e.target.id); });
+        }
+      });
+    }, {rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){ io.observe(s); });
+  }
+
+  setLang(initial);
+  apply('all');
+})();
+</script>
+</body>
+</html>
