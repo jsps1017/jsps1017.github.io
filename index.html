@@ -45,7 +45,9 @@ a:hover{text-decoration-color:var(--accent);color:var(--accent)}
 html.l-ko body, [lang="ko"], .ko{word-break:keep-all}
 html.l-en .ko, html.l-ko .en{display:none!important}
 
-.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:72px;padding-block:64px 96px}
+.banner{max-width:1120px;margin:40px auto 0}
+.banner img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:3/1;object-fit:cover;object-position:50% 80%;border-radius:4px;background:var(--panel)}
+.wrap{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:72px;padding-block:56px 96px}
 
 /* sidebar */
 .side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);align-self:start;display:flex;flex-direction:column;gap:28px}
@@ -143,7 +145,9 @@ p{margin:0 0 14px}
 footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:400 12.5px/1.6 var(--mono);color:var(--faint)}
 
 @media (max-width: 900px){
-  .wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:36px 72px}
+  .wrap{grid-template-columns:minmax(0,1fr);gap:40px;padding-block:32px 72px}
+  .banner{margin-top:20px}
+  .banner img{aspect-ratio:2/1}
   .side{position:static;gap:20px}
   .nav{flex-direction:row;flex-wrap:wrap;gap:4px 16px}
   .nav a::before{display:none}
@@ -163,6 +167,7 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
 </style>
 </head>
 <body>
+<figure class="banner" style="margin-inline:auto"><img src="assets/banner.jpg" width="1280" height="598" alt="Hwajun Lee on a trail beside a historic fortress wall, with mountains in the distance"></figure>
 <div class="wrap">
 
 <aside class="side">
