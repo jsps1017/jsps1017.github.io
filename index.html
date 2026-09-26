@@ -52,8 +52,7 @@ html.l-en .ko, html.l-ko .en{display:none!important}
 /* sidebar */
 .side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);align-self:start;display:flex;flex-direction:column;gap:28px}
 .hero{display:flex;flex-direction:column;gap:18px;margin-bottom:8px}
-.id{display:flex;align-items:flex-end;gap:24px}
-.portrait{display:block;width:104px;height:auto;aspect-ratio:268/335;object-fit:cover;border-radius:4px;flex:none;background:var(--panel)}
+.portrait{display:block;width:100%;max-width:220px;height:auto;aspect-ratio:268/335;object-fit:cover;border-radius:4px;background:var(--panel)}
 .name{margin:0;font:700 clamp(40px,6vw,56px)/1.05 var(--serif);letter-spacing:-.015em}
 .name small{display:block;font-size:.42em;font-weight:400;color:var(--muted);margin-top:10px;letter-spacing:.1em}
 .role{margin:0;display:flex;flex-direction:column;gap:2px;color:var(--muted);font-size:16px;line-height:1.6}
@@ -154,8 +153,12 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
   .nav{flex-direction:row;flex-wrap:wrap;gap:4px 16px}
   .nav a::before{display:none}
   .contact-mini{display:none}
-  .portrait{width:84px}
-  .id{gap:18px}
+  .portrait{max-width:160px;order:3}
+  .wrap{display:flex;flex-direction:column}
+  .side{display:contents}
+  .lang{order:1}
+  .nav{order:2}
+  main{order:4;margin-top:-12px}
   main{max-width:none}
 }
 @media (max-width: 560px){
@@ -175,6 +178,7 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
 <div class="wrap">
 
 <aside class="side">
+  <img class="portrait" src="assets/profile.jpg" width="268" height="335" alt="Portrait of Hwajun Lee">
   <div class="lang" role="group" aria-label="Language">
     <button type="button" id="lang-en" data-lang="en" aria-pressed="true">English</button>
     <button type="button" id="lang-ko" data-lang="ko" aria-pressed="false">한국어</button>
@@ -197,10 +201,7 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
 
 <section id="about" aria-label="About">
   <header class="hero">
-    <div class="id">
-      <img class="portrait" src="assets/profile.jpg" width="268" height="335" alt="Portrait of Hwajun Lee">
-      <h1 class="name">Hwajun Lee<small>이화준</small></h1>
-    </div>
+    <h1 class="name">Hwajun Lee<small>이화준</small></h1>
     <p class="role">
       <strong class="en">Research Professor, Chonnam National University</strong><strong class="ko">전남대학교 전남광주 인문사회연구원 학술연구교수</strong>
       <span class="en">PhD in Political Science, Yonsei University</span><span class="ko">연세대학교 정치학 박사</span>
@@ -388,8 +389,8 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
   <dl class="contact">
     <dt>Email</dt>
     <dd><a href="mailto:jsps1017@jnu.ac.kr">jsps1017@jnu.ac.kr</a><button type="button" class="copy" id="copy-email" data-copy="jsps1017@jnu.ac.kr"><span class="en">Copy</span><span class="ko">복사</span></button></dd>
-    <dt><span class="en">Office</span><span class="ko">소속</span></dt>
-    <dd><span class="en">Chonnam National University, Gwangju, Republic of Korea</span><span class="ko">전남대학교 전남광주 인문사회연구원 (광주광역시)</span></dd>
+    <dt><span class="en">Office</span><span class="ko">연구실</span></dt>
+    <dd><span class="en">Room 101, Mirae Hall 1 (미래1호관), Chonnam National University, Gwangju, Republic of Korea</span><span class="ko">전남대학교 미래1호관 101호 (광주광역시)</span></dd>
   </dl>
 </section>
 
