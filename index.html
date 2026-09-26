@@ -99,8 +99,10 @@ p{margin:0 0 14px}
 .theme .key{font:400 12px/1 var(--mono);color:var(--accent);letter-spacing:.06em;margin-bottom:10px;display:block}
 .forward{background:var(--accent-soft);border-radius:4px;padding:18px 20px;margin-top:6px}
 .forward p{margin:0}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chip-s{font:400 12.5px/1 var(--mono);border:1px solid var(--rule);border-radius:3px;padding:6px 8px;color:var(--muted)}
+.tools{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.tools li{font:500 20px/1 var(--mono);padding:22px 16px;text-align:center;color:var(--ink)}
+.tools li+li{border-left:1px solid var(--rule)}
+@media (max-width:560px){.tools{grid-template-columns:repeat(2,minmax(0,1fr))}.tools li:nth-child(3){border-left:0}.tools li:nth-child(n+3){border-top:1px solid var(--rule)}}
 
 .project{display:grid;gap:4px;padding:16px 0;border-top:1px solid var(--rule)}
 .project:first-of-type{border-top:0}
@@ -243,12 +245,10 @@ footer{margin-top:88px;padding-top:18px;border-top:1px solid var(--rule);font:40
     <div class="prose ko"><p>군부정권과 전시 폭력의 과거를 국가가 어떻게 다루는지 연구한다. 군부정권을 경험한 국가들에서 전환기 정의와 문민통제의 관계를 분석하고, 한국·일본·영국의 박물관과 기념관이 국가 서사를 구성하는 방식을 다루었다. 전남대학교에서는 「K-민주주의의 이론 정립과 전환기 정의 유형화」 과제에 참여하고 있다.</p></div>
   </div>
 
-  <div class="theme">
-    <span class="key"><span class="en">Methods</span><span class="ko">연구방법</span></span>
-    <div class="prose en"><p>Panel data analysis, text mining and topic modeling, social network analysis, and comparative historical analysis.</p></div>
-    <div class="prose ko"><p>패널 데이터 분석, 텍스트마이닝과 토픽모델링, 사회연결망 분석, 비교역사분석.</p></div>
-    <div class="chips"><span class="chip-s">R</span><span class="chip-s">Stata</span><span class="chip-s">Python</span><span class="chip-s">UCINET</span></div>
-  </div>
+  <div class="sub"><span class="en">Software</span><span class="ko">분석 도구</span></div>
+  <ul class="tools">
+    <li>R</li><li>Stata</li><li>Python</li><li>UCINET</li>
+  </ul>
 
   <div class="sub"><span class="en">Funded project</span><span class="ko">수행 과제</span></div>
   <div class="project">
