@@ -1,0 +1,58 @@
+{
+ "bbox": [
+  126.76,
+  35.07,
+  127.03,
+  35.26
+ ],
+ "crs": "EPSG:3857",
+ "resolution_m": 30.0,
+ "size": [
+  1002,
+  862
+ ],
+ "credit": "Landsat 4-9 Collection 2 Level-2 (USGS, 퍼블릭 도메인) · Microsoft Planetary Computer에서 열람",
+ "rendering": "지표 반사도(red·green·blue) 실색 합성, 반사도 0~0.25 구간 선형 확대·감마 1.6, 30m 해상도",
+ "images": {
+  "1990": {
+   "id": "LT05_L2SP_115036_19900606_02_T1",
+   "date": "1990-06-06",
+   "platform": "landsat-5",
+   "scene_cloud": 0.0,
+   "local_bad": 0.0,
+   "file": "map/landsat/landsat_1990.jpg",
+   "nodata_share": 0.0,
+   "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LT05_L2SP_115036_19900606_02_T1"
+  },
+  "2000": {
+   "id": "LE07_L2SP_115036_20000727_02_T1",
+   "date": "2000-07-27",
+   "platform": "landsat-7",
+   "scene_cloud": 7.0,
+   "local_bad": 0.0,
+   "file": "map/landsat/landsat_2000.jpg",
+   "nodata_share": 0.0,
+   "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LE07_L2SP_115036_20000727_02_T1"
+  },
+  "2010": {
+   "id": "LT05_L2SP_115036_20100512_02_T1",
+   "date": "2010-05-12",
+   "platform": "landsat-5",
+   "scene_cloud": 2.0,
+   "local_bad": 0.0048,
+   "file": "map/landsat/landsat_2010.jpg",
+   "nodata_share": 0.0,
+   "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LT05_L2SP_115036_20100512_02_T1"
+  },
+  "2020": {
+   "id": "LC08_L2SP_115036_20200608_02_T1",
+   "date": "2020-06-08",
+   "platform": "landsat-8",
+   "scene_cloud": 7.13,
+   "local_bad": 0.0,
+   "file": "map/landsat/landsat_2020.jpg",
+   "nodata_share": 0.0,
+   "stac": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LC08_L2SP_115036_20200608_02_T1"
+  }
+ }
+}

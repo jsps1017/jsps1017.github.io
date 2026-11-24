@@ -1,0 +1,216 @@
+{
+ "meta": {
+  "dataset": "5·18 사적지 연결 자료(데모)",
+  "scenario": true,
+  "notice": "인물은 공개 출처가 서술한 역할만 적었습니다. 생존 인물은 출처에 나온 공개 역할만 다룹니다. 사진은 위키미디어 공용의 자유 이용 사진이며 인물 사진은 넣지 않았습니다."
+ },
+ "data": [
+  {
+   "id": "P01",
+   "name": "윤상원",
+   "born": 1950,
+   "died": 1980,
+   "living": false,
+   "summary": "들불야학 강학으로 활동했고, 5·18 때 시민군 대변인과 도청 항쟁지도부 대변인을 맡았다. 1980년 5월 27일 새벽 옛 전남도청에서 숨졌다.",
+   "sources": [
+    "aksYoon",
+    "aksDeulbul"
+   ],
+   "relations": [
+    {
+     "site_id": "S27",
+     "date": "1979",
+     "text": "박기순의 권유로 들불야학 강사로 6개월간 활동, 박기순 사망 뒤 야학을 이끎",
+     "sources": [
+      "aksYoon",
+      "aksDeulbul"
+     ]
+    },
+    {
+     "site_id": "S08",
+     "date": null,
+     "text": "동지들과 교류한 곳(출처에 구체적 서술 없음)",
+     "sources": [
+      "aksYoon"
+     ]
+    },
+    {
+     "site_id": "S05-1",
+     "date": "1980-05-27",
+     "text": "5월 25일 도청을 끝까지 지키기로 결의하고 항쟁지도부 대변인을 맡음. 27일 04시 진압 작전 때 2층 민원실에서 총격으로 사망",
+     "sources": [
+      "aksYoon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "name": "박기순",
+   "born": null,
+   "died": 1978,
+   "living": false,
+   "summary": "들불야학을 세우고 이름을 지었다. 1978년 12월 연탄가스 사고로 숨졌다.",
+   "sources": [
+    "aksDeulbul"
+   ],
+   "relations": [
+    {
+     "site_id": "S27",
+     "date": "1978-07-23",
+     "text": "설립자",
+     "sources": [
+      "aksDeulbul"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "name": "박관현",
+   "born": 1953,
+   "died": 1982,
+   "living": false,
+   "summary": "1980년 4월 전남대 총학생회장에 당선되었고, 5월 16일 밤 옛 전남도청 앞 광장의 민족민주대성회를 주도했다. 1982년 체포되어 광주교도소에 수감되었고, 단식 투쟁 뒤 같은 해 10월 12일 숨졌다.",
+   "sources": [
+    "aksParkKH"
+   ],
+   "relations": [
+    {
+     "site_id": "S27",
+     "date": null,
+     "text": "윤상원 등과 들불야학에서 노동자와 학생을 가르침(윤상원의 권유로 동참)",
+     "sources": [
+      "aksParkKH",
+      "aksDeulbul"
+     ]
+    },
+    {
+     "site_id": "S05-2",
+     "date": "1980-05-16",
+     "text": "도청 앞 광장에서 열린 민족민주대성회를 주도",
+     "sources": [
+      "aksParkKH"
+     ]
+    },
+    {
+     "site_id": "S22",
+     "date": "1982-04",
+     "text": "체포 후 광주교도소에 수감, 40여 일 단식(당시 교도소는 문흥동에 있었음: 1971~2015, 위키백과와 대조)",
+     "sources": [
+      "aksParkKH",
+      "wikiPrison"
+     ]
+    },
+    {
+     "site_id": "S24",
+     "date": "1987",
+     "text": "망월동 5·18구묘지에 안장, 이후 국립5·18민주묘지로 이장",
+     "sources": [
+      "aksParkKH"
+     ]
+    },
+    {
+     "site_id": "S01",
+     "date": null,
+     "text": "전남대 정문 부근 '박관현 언덕'에 추모 조형물",
+     "sources": [
+      "aksParkKH"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "name": "홍남순",
+   "born": 1912,
+   "died": 2006,
+   "living": false,
+   "summary": "변호사. 5·18 때 민주 인사들이 그의 집에 모여 수습대책회의 등을 열었다.",
+   "sources": [
+    "aksHong"
+   ],
+   "relations": [
+    {
+     "site_id": "S29",
+     "date": "1980-05",
+     "text": "자택이 항쟁과 수습을 위한 대책회의 장소로 쓰임",
+     "sources": [
+      "aksHong"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "name": "김상윤",
+   "born": null,
+   "died": null,
+   "living": true,
+   "summary": "부인 정현애와 녹두서점을 운영했고, 들불야학에서 학생들을 지도했다.",
+   "sources": [
+    "aksNokdu"
+   ],
+   "relations": [
+    {
+     "site_id": "S08",
+     "date": "1977",
+     "text": "서점 운영(부인 정현애와 함께)",
+     "sources": [
+      "aksNokdu"
+     ]
+    },
+    {
+     "site_id": "S27",
+     "date": null,
+     "text": "들불야학에서 학생 지도",
+     "sources": [
+      "aksNokdu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P06",
+   "name": "정현애",
+   "born": null,
+   "died": null,
+   "living": true,
+   "summary": "김상윤과 함께 녹두서점을 경영했다.",
+   "sources": [
+    "aksNokdu"
+   ],
+   "relations": [
+    {
+     "site_id": "S08",
+     "date": "1977",
+     "text": "서점 공동 경영",
+     "sources": [
+      "aksNokdu"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P07",
+   "name": "박영순",
+   "born": null,
+   "died": null,
+   "living": true,
+   "summary": "1980년 5월 27일 새벽 2시 30분 전남도청 1층 상황실 옆 방송실에서 시민들에게 계엄군 진입을 알리는 방송을 했다. 이 방송은 '가두방송'으로 잘못 알려져 있었다.",
+   "sources": [
+    "khan2014"
+   ],
+   "relations": [
+    {
+     "site_id": "S05-1",
+     "date": "1980-05-27",
+     "text": "도청 1층 상황실 옆 방송실에서 마지막 방송",
+     "sources": [
+      "khan2014"
+     ]
+    }
+   ]
+  }
+ ]
+}
